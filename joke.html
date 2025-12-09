@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Joke Generator App</title>
+
+  <!-- All CSS is inline (per “single page” app requirement) -->
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: radial-gradient(circle at top, #0d47a1, #0b2747);
+      color: #e3f2fd;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .app-wrapper {
+      background: rgba(3, 16, 40, 0.85);
+      border-radius: 18px;
+      padding: 24px 26px 26px 26px;
+      max-width: 480px;
+      width: 100%;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
+      border: 2px solid #64b5f6;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 1.9rem;
+      margin-bottom: 8px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #bbdefb;
+      text-shadow: 0 0 12px #000;
+    }
+
+    .subtitle {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #90caf9;
+      margin-bottom: 16px;
+    }
+
+    .top-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+
+    label {
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    select {
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid #64b5f6;
+      background-color: #0d47a1;
+      color: #e3f2fd;
+      font-size: 0.9rem;
+      outline: none;
+      cursor: pointer;
+    }
+
+    .btn-generate {
+      padding: 8px 16px;
+      border-radius: 999px;
+      border: none;
+      background: #1976d2;
+      color: #e3f2fd;
+      font-weight: bold;
+      font-size: 0.95rem;
+      cursor: pointer;
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.7);
+      transition: transform 0.1s ease, background 0.1s ease;
+      white-space: nowrap;
+    }
+
+    .btn-generate:hover {
+      background: #42a5f5;
+      transform: translateY(-1px);
+    }
+
+    .btn-generate:active {
+      transform: translateY(1px);
+    }
+
+    .joke-card {
+      background: rgba(9, 28, 64, 0.96);
+      border-radius: 12px;
+      padding: 16px 18px;
+      margin-bottom: 12px;
+      border: 1px solid #64b5f6;
+      min-height: 80px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .joke-setup {
+      font-size: 1rem;
+      margin-bottom: 6px;
+    }
+
+    .joke-punchline {
+      font-size: 0.95rem;
+      color: #ffeb3b;
+    }
+
+    .meta-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      color: #bbdefb;
+      margin-bottom: 6px;
+    }
+
+    .counter {
+      font-size: 0.8rem;
+      text-align: right;
+      color: #bbdefb;
+      margin-bottom: 10px;
+    }
+
+    .back-link {
+      text-align: center;
+      margin-top: 8px;
+      font-size: 0.85rem;
+    }
+
+    .back-link a {
+      color: #90caf9;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .back-link a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 480px) {
+      .top-row {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .btn-generate {
+        width: 100%;
+        text-align: center;
+      }
+
+      select {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app-wrapper">
+    <h1>JOKE LAB</h1>
+    <div class="subtitle">Pick a category, press the button, and enjoy a fresh joke.</div>
+
+    <div class="top-row">
+      <div>
+        <label for="categorySelect">Category</label><br>
+        <select id="categorySelect">
+          <option value="random">Random</option>
+          <option value="dad">Dad jokes</option>
+          <option value="tech">Tech jokes</option>
+          <option value="school">School jokes</option>
+        </select>
+      </div>
+
+      <button class="btn-generate" id="generateBtn">Tell me a joke</button>
+    </div>
+
+    <div class="meta-row">
+      <span id="currentCategoryLabel">Current: Random</span>
+      <span id="hintLabel">Click the button to get started</span>
+    </div>
+
+    <div class="joke-card">
+      <div class="joke-setup" id="jokeSetup">
+        Why did the webpage go to therapy?
+      </div>
+      <div class="joke-punchline" id="jokePunchline">
+        It had too many unresolved requests.
+      </div>
+    </div>
+
+    <div class="counter">
+      Jokes generated this session: <span id="jokeCount">1</span>
+    </div>
+
+    <div class="back-link">
+      <a href="index.html">&larr; Back to résumé site</a>
+    </div>
+  </div>
+
+  <!-- All JavaScript is inline for the assignment requirement -->
+  <script>
+    const jokes = {
+      dad: [
+        {
+          setup: "Why don't eggs tell each other secrets?",
+          punchline: "Because they might crack up."
+        },
+        {
+          setup: "Why did the scarecrow win an award?",
+          punchline: "Because he was outstanding in his field."
+        },
+        {
+          setup: "I only know 25 letters of the alphabet.",
+          punchline: "I still don't know y."
+        },
+        {
+          setup: "Why can't a nose be 12 inches long?",
+          punchline: "Because then it would be a foot."
+        }
+      ],
+      tech: [
+        {
+          setup: "Why did the computer go to the doctor?",
+          punchline: "It had a virus… and definitely clicked a sketchy link."
+        },
+        {
+          setup: "How many programmers does it take to change a lightbulb?",
+          punchline: "None, that's a hardware problem."
+        },
+        {
+          setup: "Why did the developer go broke?",
+          punchline: "Because they used up all their cache."
+        },
+        {
+          setup: "Why do Java developers wear glasses?",
+          punchline: "Because they don't C#."
+        }
+      ],
+      school: [
+        {
+          setup: "Why did the student eat their homework?",
+          punchline: "Because the teacher said it was a piece of cake."
+        },
+        {
+          setup: "Why was the math book sad?",
+          punchline: "It had too many problems."
+        },
+        {
+          setup: "What do you call a student who loves homework?",
+          punchline: "A myth."
+        },
+        {
+          setup: "Why did the history teacher wear sunglasses?",
+          punchline: "Because their students were so bright."
+        }
+      ]
+    };
+
+    const setupEl = document.getElementById("jokeSetup");
+    const punchlineEl = document.getElementById("jokePunchline");
+    const categorySelect = document.getElementById("categorySelect");
+    const generateBtn = document.getElementById("generateBtn");
+    const currentCategoryLabel = document.getElementById("currentCategoryLabel");
+    const hintLabel = document.getElementById("hintLabel");
+    const jokeCountEl = document.getElementById("jokeCount");
+
+    let jokeCount = 1;
+
+    function getRandomFromArray(arr) {
+      const index = Math.floor(Math.random() * arr.length);
+      return arr[index];
+    }
+
+    function getRandomJoke(category) {
+      if (category === "random") {
+        const categories = Object.keys(jokes);
+        const randomCat = categories[Math.floor(Math.random() * categories.length)];
+        return { ...getRandomFromArray(jokes[randomCat]), categoryName: randomCat };
+      } else {
+        return { ...getRandomFromArray(jokes[category]), categoryName: category };
+      }
+    }
+
+    function updateCategoryLabel(category) {
+      if (category === "random") {
+        currentCategoryLabel.textContent = "Current: Random";
+      } else if (category === "dad") {
+        currentCategoryLabel.textContent = "Current: Dad jokes";
+      } else if (category === "tech") {
+        currentCategoryLabel.textContent = "Current: Tech jokes";
+      } else if (category === "school") {
+        currentCategoryLabel.textContent = "Current: School jokes";
+      }
+    }
+
+    generateBtn.addEventListener("click", () => {
+      const chosenCategory = categorySelect.value;
+      const joke = getRandomJoke(chosenCategory);
+
+      setupEl.textContent = joke.setup;
+      punchlineEl.textContent = joke.punchline;
+
+      updateCategoryLabel(chosenCategory);
+      hintLabel.textContent =
+        "Category used: " +
+        joke.categoryName.charAt(0).toUpperCase() +
+        joke.categoryName.slice(1);
+
+      jokeCount++;
+      jokeCountEl.textContent = jokeCount;
+    });
+
+    categorySelect.addEventListener("change", () => {
+      updateCategoryLabel(categorySelect.value);
+      hintLabel.textContent =
+        "Category changed. Click the button for a new joke.";
+    });
+  </script>
+</body>
+</html>

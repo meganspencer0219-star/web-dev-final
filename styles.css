@@ -1,0 +1,163 @@
+/* Global base styles */
+body {
+  background: #e9f2ff;
+  color: #1b2a41;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Navbar styling */
+.custom-navbar {
+  background: linear-gradient(90deg, #0d47a1, #1565c0);
+}
+
+.navbar-brand {
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.nav-link {
+  font-size: 0.95rem;
+}
+
+.nav-link.active {
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+/* Page title / header */
+.page-title {
+  font-family: "Georgia", "Times New Roman", serif;
+  color: #0d47a1;
+  margin-bottom: 0.3rem;
+}
+
+.tagline {
+  color: #355c96;
+}
+
+.contact-line a {
+  color: #1565c0;
+  text-decoration: none;
+}
+
+.contact-line a:hover {
+  text-decoration: underline;
+}
+
+/* Resume sections */
+.resume-section {
+  margin-bottom: 2rem;
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 1.5rem 1.75rem;
+  box-shadow: 0 1px 8px rgba(15, 35, 64, 0.12);
+}
+
+.resume-section h2 {
+  font-family: "Georgia", "Times New Roman", serif;
+  color: #0b3c8a;
+}
+
+.resume-section h3 {
+  font-size: 1.05rem;
+  margin-top: 0.75rem;
+  color: #163a63;
+}
+
+.sub-heading {
+  font-size: 0.98rem;
+  font-style: italic;
+  margin-top: 0.7rem;
+  color: #34537e;
+}
+
+.muted-line {
+  font-size: 0.9rem;
+  color: #6079a3;
+}
+
+/* Lists */
+.resume-section ul {
+  padding-left: 1.25rem;
+  margin-bottom: 0.3rem;
+}
+
+/* Scratch page specific helpers */
+.scratch-hero {
+  background: linear-gradient(120deg, #0d47a1, #1976d2);
+  color: #e3f2fd;
+  padding: 2rem 1.5rem;
+  border-radius: 10px;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.scratch-main {
+  max-width: 900px;
+  margin: 0 auto 2.5rem auto;
+}
+
+/* Volleyball scratch content blocks */
+.info-card {
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 1px 8px rgba(15, 35, 64, 0.1);
+}
+
+.info-card h2,
+.info-card h3 {
+  color: #0b3c8a;
+}
+
+/* Simple in-page anchor link style */
+.anchor-link {
+  color: #1565c0;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.anchor-link:hover {
+  text-decoration: underline;
+}
+
+.video-wrapper {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 */
+  height: 0;
+  overflow: hidden;
+  margin-top: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 45, 95, 0.25);
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+/* Tableau visualization container – new version */
+.tableau-wrapper {
+  margin-top: 1rem;
+  padding: 0.75rem;
+  background-color: #f0f6ff;
+  border-radius: 12px;
+  box-shadow: 0 4px 18px rgba(0, 45, 95, 0.25);
+
+  /* Keep it inside the card */
+  max-width: 100%;
+  overflow-x: auto;   /* add horizontal scroll if Tableau insists on being wide */
+}
+
+/* Force the viz to respect the container width as much as possible */
+.tableau-wrapper .tableauPlaceholder,
+.tableau-wrapper .tableauPlaceholder object {
+  width: 100% !important;
+}
+
+

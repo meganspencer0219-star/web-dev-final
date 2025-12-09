@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Volleyball Fundamentals – Scratch Page</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="scratch-main">
+    <!-- Hero / header with custom background color (blue) -->
+    <section class="scratch-hero">
+      <h1>Volleyball Fundamentals</h1>
+      <p>
+        A quick guide to positions, skills, and strategy — from someone who has lived on the court.
+      </p>
+      <p style="margin-top: 0.5rem; font-size: 0.9rem;">
+        <a class="anchor-link" href="#rules">Jump to basic rules</a> ·
+        <a class="anchor-link" href="#tableau">Jump to stats section</a>
+      </p>
+    </section>
+
+    <!-- Navigation back to professional pages (per instructions) -->
+    <section class="info-card">
+      <h2>Navigation</h2>
+      <ul>
+        <li><a class="anchor-link" href="index.html">Back to Professional Résumé</a></li>
+        <li><a class="anchor-link" href="joke.html">Go to Joke Generator App</a></li>
+      </ul>
+    </section>
+
+    <!-- Example ordered list with an unordered list embedded (requirement #3.1) -->
+    <section class="info-card">
+      <h2>How to Get Started with Volleyball</h2>
+      <ol>
+        <li>
+          Choose a position that fits you:
+          <ul>
+            <li><strong>Setter</strong> – runs the offense and sets up hitters.</li>
+            <li><strong>Outside hitter</strong> – all-around player who passes, attacks, and blocks.</li>
+            <li><strong>Middle blocker</strong> – quick attacks and front-row defense.</li>
+            <li><strong>Libero/DS</strong> – back-row specialist who keeps the ball off the floor.</li>
+          </ul>
+        </li>
+        <li>
+          Learn the core skills:
+          <ul>
+            <li>Passing (forearm platform and overhead).</li>
+            <li>Serving (floater, topspin, or jump serve).</li>
+            <li>Hitting (approach, arm swing, and timing).</li>
+            <li>Blocking and reading the hitter.</li>
+          </ul>
+        </li>
+        <li>
+          Practice game situations:
+          <ul>
+            <li>Six-on-six scrimmages.</li>
+            <li>Serve-receive rotations.</li>
+            <li>Free ball and transition drills.</li>
+          </ul>
+        </li>
+      </ol>
+    </section>
+
+    <!-- Section with in-page anchor target for rules -->
+    <section class="info-card" id="rules">
+      <h2>Basic Rules of Volleyball</h2>
+      <p>
+        Volleyball is played between two teams of six players on the court at a time. Here are a few of the
+        simple rules newer players should remember:
+      </p>
+      <ul>
+        <li>Each team is allowed up to three contacts to return the ball over the net.</li>
+        <li>A player cannot contact the ball twice in a row (blocking doesn’t count as a contact).</li>
+        <li>A rally begins with a serve and ends when the ball hits the floor, goes out of bounds, or a fault is called.</li>
+        <li>Most competitive matches are played best-of-five sets to 25 points (15 in the fifth), win by two.</li>
+        <li>Players must stay in rotational order until the server contacts the ball.</li>
+      </ul>
+      <p style="margin-top: 0.5rem; font-size: 0.9rem;">
+        <a class="anchor-link" href="#top">Back to top</a>
+      </p>
+    </section>
+
+    <section class="info-card">
+  <h2>BYU Women’s Volleyball Highlights</h2>
+  <p>
+    This highlight video showcases competitive play, teamwork, and high-level execution
+    from BYU Women’s Volleyball against Arizona.
+  </p>
+
+  <div class="video-wrapper">
+    <iframe
+      src="https://www.youtube.com/embed/TOaom38_Neg"
+      title="BYU Women's Volleyball vs Arizona - Full Game Highlights"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen>
+    </iframe>
+  </div>
+</section>
+
+
+    <!-- Placeholder section where you will insert images -->
+    <section class="info-card">
+  <h2>Photo Highlights</h2>
+  <p>
+    This image captures the athleticism and timing required for a powerful volleyball attack.
+  </p>
+
+  <img 
+    src="https://cdn.europosters.eu/image/750/posters/woman-spiking-volleyball-i186886.jpg"
+    alt="Woman spiking a volleyball"
+    class="vb-photo"
+  >
+</section>
+
+
+    <!-- Tableau section (you will embed the interactive graph) -->
+    <section class="info-card" id="tableau">
+      <h2>Volleyball Stats – Tableau Embed</h2>
+      <p>
+        This shows rankings of national volleyball teams.
+      </p>
+      <!-- TODO: Paste Tableau embed code here -->
+       <div class='tableau-wrapper' id='viz1765304135856' style='position: relative'><noscript><a href='#'><img alt='Tournament Dashboard ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;DB&#47;DBR8TZY27&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='path' value='shared&#47;DBR8TZY27' /> <param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;DB&#47;DBR8TZY27&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1765304135856');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='1700px';vizElement.style.height='1027px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+    </section>
+
+    <footer class="text-center mt-3 mb-4 small text-muted">
+      Scratch Page for Web Development Project – Volleyball Theme
+    </footer>
+  </main>
+</body>
+</html>
