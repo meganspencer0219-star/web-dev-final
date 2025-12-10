@@ -160,4 +160,28 @@ body {
   width: 100% !important;
 }
 
+/* Simple positioned row (counts for the "positioning blocks" requirement) */
+.facts-row {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.fact-box {
+  background-color: #e3f2fd;
+  padding: 1rem;
+  border-radius: 8px;
+  flex: 1;
+  text-align: center;
+  font-weight: 600;
+  color: #0d47a1;
+}
+
+/* Stack on small screens */
+@media (max-width: 600px) {
+  .facts-row {
+    flex-direction: column;
+  }
+}
+
 
